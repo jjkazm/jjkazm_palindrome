@@ -1,7 +1,7 @@
 require "jjkazm_palindrome/version"
 
-class String
 
+module JjkazmPalindrome
   # Returns true for a palindrome, false otherwise.
   def palindrome?
     processed_content == processed_content.reverse
@@ -11,7 +11,14 @@ class String
 
     # Returns content for palindrome testing.
     def processed_content
-      self.downcase.gsub(/\W/, "")
+      self.to_s.downcase.gsub(/[^a-z0-9]/, "")
     end
+end
 
+class String
+  include JjkazmPalindrome
+end
+
+class Integer
+  include JjkazmPalindrome
 end
