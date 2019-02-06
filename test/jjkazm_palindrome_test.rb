@@ -25,4 +25,12 @@ class JjkazmPalindromeTest < Minitest::Test
     assert 12321.palindrome?
   end
 
+  def test_only_spaces
+    refute "    ".palindrome?
+  end
+
+  def test_empty_string
+    refute "".palindrome?
+  end
+
 end
